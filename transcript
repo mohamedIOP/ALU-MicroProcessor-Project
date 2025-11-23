@@ -92,3 +92,34 @@ force -freeze sim:/ALU/A 1111000011110001 0
 force -freeze sim:/ALU/F 10011 0
 run
 run
+force -freeze sim:/ALU/A 1111000011110000 0
+force -freeze sim:/ALU/F 10100 0
+run
+force -freeze sim:/ALU/A 0000_1111_0000_1111 0
+force -freeze sim:/ALU/F 10101 0
+run
+force -freeze sim:/ALU/F 10110 0
+run
+force -freeze sim:/ALU/A 0011_1111_0000_0000 0
+force -freeze sim:/ALU/F 10111 0
+run
+# Compile of ALU.v was successful.
+vsim -gui work.TB_ALU
+# End time: 22:52:55 on Nov 23,2025, Elapsed time: 6:20:52
+# Errors: 0, Warnings: 2
+# vsim -gui work.TB_ALU 
+# Start time: 22:52:55 on Nov 23,2025
+# Loading work.TB_ALU
+# Loading work.ALU
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/TB_ALU/Result
+add wave -position end  sim:/TB_ALU/Status
+add wave -position end  sim:/TB_ALU/A
+add wave -position end  sim:/TB_ALU/B
+add wave -position end  sim:/TB_ALU/F
+add wave -position end  sim:/TB_ALU/Cin
+run
+# ** Note: $finish    : D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v(109)
+#    Time: 240 ps  Iteration: 0  Instance: /TB_ALU
+# 1
+# Break in Module TB_ALU at D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v line 109

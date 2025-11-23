@@ -73,13 +73,15 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
                 if(F[1]) begin
                     Status[CARRY_F] = (F == DEC) ? dec_result[16] : sub_result[16];
                     Status[OVERFLOW_F] = (A[15] != B[15]) && (Result[15] != A[15]);
-                    Status[AUX_CARRY_F] = (A[3:0] < B[3:0]);
+                    if(F != DEC) Status[AUX_CARRY_F] = (A[3:0] < B[3:0]);
+                    else Status[AUX_CARRY_F] = (A[3:0] < (B[3:0] + Cin));
                 end
                 // ADD Operation
                 else begin
                     Status[CARRY_F] = (F == INC) ? inc_result[16] : add_result[16];
                     Status[OVERFLOW_F] = (A[15] == B[15]) && (Result[15] != A[15]);
-                    Status[AUX_CARRY_F] = (A[3:0] + B[3:0] > 4'hF);
+                    if(F != INC) Status[AUX_CARRY_F] = (A[3:0] + B[3:0] > 4'hF);
+                    else Status[AUX_CARRY_F] = (A[3:0] + B[3:0] + Cin > 4'hF);
                 end
             end
             ROL,RCL,SHL,SAL:begin
@@ -95,4 +97,46 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
             end
         endcase
     end
+endmodule
+
+`timescale 1ps/1ps
+module TB_ALU;
+wire [15:0] Result;
+wire [5:0] Status;
+reg [15:0] A,B;
+reg [4:0] F;
+reg Cin;
+ALU ALU_BlockTest (.Result(Result),.Status(Status),.A(A),.B(B),.F(F),.Cin(Cin));
+initial begin
+    #240 $finish;
+end
+initial begin
+    $dumpfile("ALU_TESTBENCH.vcd");
+    $dumpvars(0,TB_ALU);
+end
+initial fork 
+    // operations
+    #0 {A,B,F,Cin} = {16'h0000,16'h0000,5'b00000,1'b1};
+    #10 {A,B,F,Cin} = {16'h0000,16'h0000,5'b00010,1'b1};
+    #20 {A,B,F,Cin} = {16'h0000,16'h0000,5'b00001,1'b1};
+    #30 {A,B,F,Cin} = {16'h0001,16'h0000,5'b00001,1'b1};
+    #40 {A,B,F,Cin} = {16'h0001,16'h0000,5'b00011,1'b1};
+    #50 {A,B,F,Cin} = {16'h0003,16'h0004,5'b00100,1'b1};
+    #60 {A,B,F,Cin} = {16'h0003,16'h0004,5'b00101,1'b1};
+    #70 {A,B,F,Cin} = {16'h0007,16'h0003,5'b00110,1'b1};
+    #80 {A,B,F,Cin} = {16'h0007,16'h0003,5'b00111,1'b1};
+    #90 {A,B,F,Cin} = {16'h0007,16'h0003,5'b01000,1'b1};
+    #100 {A,B,F,Cin} = {16'h0007,16'h0003,5'b01001,1'b1};
+    #110 {A,B,F,Cin} = {16'h0007,16'h0003,5'b01010,1'b1};
+    #120 {A,B,F,Cin} = {16'h0007,16'h0003,5'b01011,1'b1};
+    #130 {A,B,F,Cin} = {16'h80f0,16'h0003,5'b10000,1'b1};
+    #140 {A,B,F,Cin} = {16'h0f0f,16'h0003,5'b10001,1'b1};
+    #150 {A,B,F,Cin} = {16'hf0f0,16'h0003,5'b10010,1'b1};
+    #160 {A,B,F,Cin} = {16'hf0f1,16'h0003,5'b10011,1'b1};
+    #170 {A,B,F,Cin} = {16'hf0f0,16'h0003,5'b10100,1'b1};
+    #180 {A,B,F,Cin} = {16'h0f0f,16'h0003,5'b10101,1'b1};
+    #190 {A,B,F,Cin} = {16'h0f0f,16'h0003,5'b10110,1'b1};
+    #200 {A,B,F,Cin} = {16'h3f00,16'h0003,5'b10111,1'b1};
+    // FLags
+join
 endmodule

@@ -1,0 +1,289 @@
+$date
+	Mon Nov 24 00:07:58 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TB_ALU $end
+$var wire 6 ! Status [5:0] $end
+$var wire 16 " Result [15:0] $end
+$var reg 16 # A [15:0] $end
+$var reg 16 $ B [15:0] $end
+$var reg 1 % Cin $end
+$var reg 5 & F [4:0] $end
+$scope module ALU_BlockTest $end
+$var wire 16 ' A [15:0] $end
+$var wire 16 ( B [15:0] $end
+$var wire 1 % Cin $end
+$var wire 5 ) F [4:0] $end
+$var wire 17 * sub_result [16:0] $end
+$var wire 17 + inc_result [16:0] $end
+$var wire 17 , dec_result [16:0] $end
+$var wire 17 - add_result [16:0] $end
+$var parameter 5 . ADD $end
+$var parameter 5 / ADD_CARRY $end
+$var parameter 5 0 AND $end
+$var parameter 32 1 AUX_CARRY_F $end
+$var parameter 32 2 CARRY_F $end
+$var parameter 5 3 DEC $end
+$var parameter 5 4 INC $end
+$var parameter 32 5 NEGATIVE_F $end
+$var parameter 5 6 NOT $end
+$var parameter 5 7 OR $end
+$var parameter 32 8 OVERFLOW_F $end
+$var parameter 32 9 PARITY_F $end
+$var parameter 5 : RCL $end
+$var parameter 5 ; RCR $end
+$var parameter 5 < ROL $end
+$var parameter 5 = ROR $end
+$var parameter 5 > SAL $end
+$var parameter 5 ? SAR $end
+$var parameter 5 @ SHL $end
+$var parameter 5 A SHR $end
+$var parameter 5 B SUB $end
+$var parameter 5 C SUB_BORROW $end
+$var parameter 5 D XOR $end
+$var parameter 32 E ZERO_F $end
+$var reg 16 F Result [15:0] $end
+$var reg 6 G Status [5:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 E
+b1010 D
+b111 C
+b110 B
+b10001 A
+b10000 @
+b10011 ?
+b10010 >
+b10101 =
+b10100 <
+b10111 ;
+b10110 :
+b1 9
+b10 8
+b1001 7
+b1011 6
+b11 5
+b1 4
+b11 3
+b101 2
+b0 1
+b1000 0
+b101 /
+b100 .
+$end
+#0
+$dumpvars
+b10010 G
+b0 F
+b0 -
+b11111111111111111 ,
+b1 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+1%
+b0 $
+b0 #
+b0 "
+b10010 !
+$end
+#10
+b10 &
+b10 )
+#20
+b0 !
+b0 G
+b1 "
+b1 F
+b1 &
+b1 )
+#30
+b10 "
+b10 F
+b1 -
+b1 *
+b10 +
+b0 ,
+b1 #
+b1 '
+#40
+b10010 !
+b10010 G
+b0 "
+b0 F
+b11 &
+b11 )
+#50
+b0 !
+b0 G
+b111 "
+b111 F
+b100 +
+b10 ,
+b11 #
+b11 '
+b111 -
+b11111111111111111 *
+b100 $
+b100 (
+b100 &
+b100 )
+#60
+b1000 "
+b1000 F
+b1000 -
+b101 &
+b101 )
+#70
+b100 "
+b100 F
+b1000 +
+b110 ,
+b111 #
+b111 '
+b1010 -
+b100 *
+b11 $
+b11 (
+b110 &
+b110 )
+#80
+b10 !
+b10 G
+b11 "
+b11 F
+b11 *
+b111 &
+b111 )
+#90
+b100 *
+b1000 &
+b1000 )
+#100
+b0 !
+b0 G
+b111 "
+b111 F
+b1001 &
+b1001 )
+#110
+b100 "
+b100 F
+b1010 &
+b1010 )
+#120
+b1000 !
+b1000 G
+b1111111111111000 "
+b1111111111111000 F
+b1011 &
+b1011 )
+#130
+b100010 !
+b100010 G
+b111100000 "
+b111100000 F
+b1000000011110011 -
+b1000000011101101 *
+b1000000011110001 +
+b1000000011101111 ,
+b1000000011110000 #
+b1000000011110000 '
+b10000 &
+b10000 )
+#140
+b100000 !
+b100000 G
+b11110000111 "
+b11110000111 F
+b111100010010 -
+b111100001100 *
+b111100010000 +
+b111100001110 ,
+b111100001111 #
+b111100001111 '
+b10001 &
+b10001 )
+#150
+b101000 !
+b101000 G
+b1110000111100000 "
+b1110000111100000 F
+b1111000011110011 -
+b1111000011101101 *
+b1111000011110001 +
+b1111000011101111 ,
+b1111000011110000 #
+b1111000011110000 '
+b10010 &
+b10010 )
+#160
+b101000 !
+b101000 G
+b1111100001111000 "
+b1111100001111000 F
+b1111000011110100 -
+b1111000011101110 *
+b1111000011110010 +
+b1111000011110000 ,
+b1111000011110001 #
+b1111000011110001 '
+b10011 &
+b10011 )
+#170
+b101010 !
+b101010 G
+b1110000111100001 "
+b1110000111100001 F
+b1111000011110011 -
+b1111000011101101 *
+b1111000011110001 +
+b1111000011101111 ,
+b1111000011110000 #
+b1111000011110000 '
+b10100 &
+b10100 )
+#180
+b101010 !
+b101010 G
+b1000011110000111 "
+b1000011110000111 F
+b111100010010 -
+b111100001100 *
+b111100010000 +
+b111100001110 ,
+b111100001111 #
+b111100001111 '
+b10101 &
+b10101 )
+#190
+b0 !
+b0 G
+b1111000011111 "
+b1111000011111 F
+b10110 &
+b10110 )
+#200
+b1000 !
+b1000 G
+b1001111110000000 "
+b1001111110000000 F
+b11111100000011 -
+b11111011111101 *
+b11111100000001 +
+b11111011111111 ,
+b11111100000000 #
+b11111100000000 '
+b10111 &
+b10111 )
+#240

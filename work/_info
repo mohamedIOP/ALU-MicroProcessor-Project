@@ -10,26 +10,50 @@ z2
 cModel Technology
 dC:/intelFPGA/20.1
 vALU
-!s110 1763908318
+Z0 !s110 1763931169
 !i10b 1
-!s100 mhb9ze_9[FJgSfM<IU2:l3
-!s11b Dg1SIo80bB@j0V0VzS_@n1
-I2PdKcWTCQS7iQSHVQAK^N3
-VDg1SIo80bB@j0V0VzS_@n1
-dD:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project
-w1763908285
-8D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v
-FD:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v
-!i122 1
+!s100 _aB307dAX9RQFY[TmI88E0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IE1^W3^]L>al?ZE6n0jIk_2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project
+Z4 w1763930870
+Z5 8D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v
+Z6 FD:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v
+!i122 2
 L0 1 98
-OV;L;2020.1;71
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1763908318.000000
+Z8 !s108 1763931169.000000
 !s107 D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v|
-!s90 -reportprogress|300|-work|work|-stats=none|D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v|
 !i113 1
-o-work work
-tCvgOpt 0
+Z10 o-work work
+Z11 tCvgOpt 0
 n@a@l@u
+vTB_ALU
+R0
+!i10b 1
+!s100 EVnVeGF4d8Hj8F6mAI2^Q2
+R1
+I];fNX[U`^0h]FeJhm@aYn0
+R2
+R3
+R4
+R5
+R6
+!i122 2
+L0 101 39
+R7
+r1
+!s85 0
+31
+R8
+Z12 !s107 D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v|
+R9
+!i113 1
+R10
+R11
+n@t@b_@a@l@u
