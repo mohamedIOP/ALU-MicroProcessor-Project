@@ -51,12 +51,12 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
             SHL : Result = A << 1;
             SHR : Result = A >> 1;
             SAL : Result = A <<< 1;
-            SAR : Result = A >>> 1;
+            SAR : Result = {A[15], A[15:1]};
             ROL : Result = {A[14:0],A[15]};
             ROR : Result = {A[0],A[15:1]};
             RCL : Result = {A[14:0],Cin};
             RCR : Result = {Cin,A[15:1]};
-            default: Result = 16'hzzzz;
+            default: Result = 16'h0000;
         endcase
     end
     // Status Setting
