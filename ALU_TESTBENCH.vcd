@@ -1,5 +1,5 @@
 $date
-	Mon Nov 24 00:07:58 2025
+	Mon Nov 24 02:21:45 2025
 $end
 $version
 	Icarus Verilog
@@ -20,72 +20,84 @@ $var wire 16 ( B [15:0] $end
 $var wire 1 % Cin $end
 $var wire 5 ) F [4:0] $end
 $var wire 17 * sub_result [16:0] $end
-$var wire 17 + inc_result [16:0] $end
-$var wire 17 , dec_result [16:0] $end
-$var wire 17 - add_result [16:0] $end
-$var parameter 5 . ADD $end
-$var parameter 5 / ADD_CARRY $end
-$var parameter 5 0 AND $end
-$var parameter 32 1 AUX_CARRY_F $end
-$var parameter 32 2 CARRY_F $end
-$var parameter 5 3 DEC $end
-$var parameter 5 4 INC $end
-$var parameter 32 5 NEGATIVE_F $end
-$var parameter 5 6 NOT $end
-$var parameter 5 7 OR $end
-$var parameter 32 8 OVERFLOW_F $end
-$var parameter 32 9 PARITY_F $end
-$var parameter 5 : RCL $end
-$var parameter 5 ; RCR $end
-$var parameter 5 < ROL $end
-$var parameter 5 = ROR $end
-$var parameter 5 > SAL $end
-$var parameter 5 ? SAR $end
-$var parameter 5 @ SHL $end
-$var parameter 5 A SHR $end
-$var parameter 5 B SUB $end
-$var parameter 5 C SUB_BORROW $end
-$var parameter 5 D XOR $end
-$var parameter 32 E ZERO_F $end
-$var reg 16 F Result [15:0] $end
-$var reg 6 G Status [5:0] $end
+$var wire 5 + sub_borrow_aux [4:0] $end
+$var wire 5 , sub_aux [4:0] $end
+$var wire 17 - inc_result [16:0] $end
+$var wire 5 . inc_aux [4:0] $end
+$var wire 17 / dec_result [16:0] $end
+$var wire 5 0 dec_aux [4:0] $end
+$var wire 17 1 add_result [16:0] $end
+$var wire 5 2 add_carry_aux [4:0] $end
+$var wire 5 3 add_aux [4:0] $end
+$var parameter 5 4 ADD $end
+$var parameter 5 5 ADD_CARRY $end
+$var parameter 5 6 AND $end
+$var parameter 32 7 AUX_CARRY_F $end
+$var parameter 32 8 CARRY_F $end
+$var parameter 5 9 DEC $end
+$var parameter 5 : INC $end
+$var parameter 32 ; NEGATIVE_F $end
+$var parameter 5 < NOT $end
+$var parameter 5 = OR $end
+$var parameter 32 > OVERFLOW_F $end
+$var parameter 32 ? PARITY_F $end
+$var parameter 5 @ RCL $end
+$var parameter 5 A RCR $end
+$var parameter 5 B ROL $end
+$var parameter 5 C ROR $end
+$var parameter 5 D SAL $end
+$var parameter 5 E SAR $end
+$var parameter 5 F SHL $end
+$var parameter 5 G SHR $end
+$var parameter 5 H SUB $end
+$var parameter 5 I SUB_BORROW $end
+$var parameter 5 J XOR $end
+$var parameter 32 K ZERO_F $end
+$var reg 16 L Result [15:0] $end
+$var reg 6 M Status [5:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b100 E
-b1010 D
-b111 C
-b110 B
-b10001 A
-b10000 @
-b10011 ?
-b10010 >
-b10101 =
-b10100 <
-b10111 ;
-b10110 :
-b1 9
-b10 8
-b1001 7
-b1011 6
-b11 5
-b1 4
-b11 3
-b101 2
-b0 1
-b1000 0
-b101 /
-b100 .
+b100 K
+b1010 J
+b111 I
+b110 H
+b10001 G
+b10000 F
+b10011 E
+b10010 D
+b10101 C
+b10100 B
+b10111 A
+b10110 @
+b1 ?
+b10 >
+b1001 =
+b1011 <
+b11 ;
+b1 :
+b11 9
+b101 8
+b0 7
+b1000 6
+b101 5
+b100 4
 $end
 #0
 $dumpvars
-b10010 G
-b0 F
-b0 -
-b11111111111111111 ,
-b1 +
+b10010 M
+b0 L
+b0 3
+b1 2
+b0 1
+b11111 0
+b11111111111111111 /
+b1 .
+b1 -
+b0 ,
+b11111 +
 b0 *
 b0 )
 b0 (
@@ -102,37 +114,49 @@ b10 &
 b10 )
 #20
 b0 !
-b0 G
+b0 M
 b1 "
-b1 F
+b1 L
 b1 &
 b1 )
 #30
 b10 "
-b10 F
-b1 -
+b10 L
+b1 ,
+b0 +
+b0 0
+b1 3
+b10 2
+b10 .
+b1 1
 b1 *
-b10 +
-b0 ,
+b10 -
+b0 /
 b1 #
 b1 '
 #40
 b10010 !
-b10010 G
+b10010 M
 b0 "
-b0 F
+b0 L
 b11 &
 b11 )
 #50
+b10 0
+b100 .
+b11111 ,
+b11110 +
+b111 3
+b1000 2
 b0 !
-b0 G
+b0 M
 b111 "
-b111 F
-b100 +
-b10 ,
+b111 L
+b100 -
+b10 /
 b11 #
 b11 '
-b111 -
+b111 1
 b11111111111111111 *
 b100 $
 b100 (
@@ -140,18 +164,26 @@ b100 &
 b100 )
 #60
 b1000 "
-b1000 F
-b1000 -
+b1000 L
+b1000 1
 b101 &
 b101 )
 #70
+b110 0
+b1000 .
+b100 ,
+b11 +
+b1010 3
+b1011 2
+b0 !
+b0 M
 b100 "
-b100 F
-b1000 +
-b110 ,
+b100 L
+b1000 -
+b110 /
 b111 #
 b111 '
-b1010 -
+b1010 1
 b100 *
 b11 $
 b11 (
@@ -159,9 +191,9 @@ b110 &
 b110 )
 #80
 b10 !
-b10 G
+b10 M
 b11 "
-b11 F
+b11 L
 b11 *
 b111 &
 b111 )
@@ -171,119 +203,345 @@ b1000 &
 b1000 )
 #100
 b0 !
-b0 G
+b0 M
 b111 "
-b111 F
+b111 L
 b1001 &
 b1001 )
 #110
 b100 "
-b100 F
+b100 L
 b1010 &
 b1010 )
 #120
 b1000 !
-b1000 G
+b1000 M
 b1111111111111000 "
-b1111111111111000 F
+b1111111111111000 L
 b1011 &
 b1011 )
 #130
+b11101 ,
+b11100 +
+b11111 0
+b11 3
+b100 2
+b1 .
 b100010 !
-b100010 G
+b100010 M
 b111100000 "
-b111100000 F
-b1000000011110011 -
+b111100000 L
+b1000000011110011 1
 b1000000011101101 *
-b1000000011110001 +
-b1000000011101111 ,
+b1000000011110001 -
+b1000000011101111 /
 b1000000011110000 #
 b1000000011110000 '
 b10000 &
 b10000 )
 #140
+b1100 ,
+b1011 +
+b1110 0
+b10010 3
+b10011 2
+b10000 .
 b100000 !
-b100000 G
+b100000 M
 b11110000111 "
-b11110000111 F
-b111100010010 -
+b11110000111 L
+b111100010010 1
 b111100001100 *
-b111100010000 +
-b111100001110 ,
+b111100010000 -
+b111100001110 /
 b111100001111 #
 b111100001111 '
 b10001 &
 b10001 )
 #150
+b11101 ,
+b11100 +
+b11111 0
+b11 3
+b100 2
+b1 .
 b101000 !
-b101000 G
+b101000 M
 b1110000111100000 "
-b1110000111100000 F
-b1111000011110011 -
+b1110000111100000 L
+b1111000011110011 1
 b1111000011101101 *
-b1111000011110001 +
-b1111000011101111 ,
+b1111000011110001 -
+b1111000011101111 /
 b1111000011110000 #
 b1111000011110000 '
 b10010 &
 b10010 )
 #160
+b11110 ,
+b11101 +
+b0 0
+b100 3
+b101 2
+b10 .
 b101000 !
-b101000 G
+b101000 M
 b1111100001111000 "
-b1111100001111000 F
-b1111000011110100 -
+b1111100001111000 L
+b1111000011110100 1
 b1111000011101110 *
-b1111000011110010 +
-b1111000011110000 ,
+b1111000011110010 -
+b1111000011110000 /
 b1111000011110001 #
 b1111000011110001 '
 b10011 &
 b10011 )
 #170
+b11101 ,
+b11100 +
+b11111 0
+b11 3
+b100 2
+b1 .
 b101010 !
-b101010 G
+b101010 M
 b1110000111100001 "
-b1110000111100001 F
-b1111000011110011 -
+b1110000111100001 L
+b1111000011110011 1
 b1111000011101101 *
-b1111000011110001 +
-b1111000011101111 ,
+b1111000011110001 -
+b1111000011101111 /
 b1111000011110000 #
 b1111000011110000 '
 b10100 &
 b10100 )
 #180
+b1100 ,
+b1011 +
+b1110 0
+b10010 3
+b10011 2
+b10000 .
 b101010 !
-b101010 G
+b101010 M
 b1000011110000111 "
-b1000011110000111 F
-b111100010010 -
+b1000011110000111 L
+b111100010010 1
 b111100001100 *
-b111100010000 +
-b111100001110 ,
+b111100010000 -
+b111100001110 /
 b111100001111 #
 b111100001111 '
 b10101 &
 b10101 )
 #190
 b0 !
-b0 G
+b0 M
 b1111000011111 "
-b1111000011111 F
+b1111000011111 L
 b10110 &
 b10110 )
 #200
+b11101 ,
+b11100 +
+b11111 0
+b11 3
+b100 2
+b1 .
 b1000 !
-b1000 G
+b1000 M
 b1001111110000000 "
-b1001111110000000 F
-b11111100000011 -
+b1001111110000000 L
+b11111100000011 1
 b11111011111101 *
-b11111100000001 +
-b11111011111111 ,
+b11111100000001 -
+b11111011111111 /
 b11111100000000 #
 b11111100000000 '
 b10111 &
 b10111 )
+#210
+b1110 0
+b10000 .
+b1110 ,
+b1101 +
+b10000 3
+b10001 2
+b1100 !
+b1100 M
+b1000000000000000 "
+b1000000000000000 L
+b1000000000000000 -
+b111111111111110 /
+b111111111111111 #
+b111111111111111 '
+b1000000000000000 1
+b111111111111110 *
+b1 $
+b1 (
+b100 &
+b100 )
+#220
+b1110 !
+b1110 M
+b1000000000000001 "
+b1000000000000001 L
+b1000000000000001 1
+b101 &
+b101 )
+#230
+b0 ,
+b11111 +
+b11110 3
+b11111 2
+b101100 !
+b101100 M
+b1000000000000000 "
+b1000000000000000 L
+b10111111111111110 1
+b11000000000000000 *
+b1111111111111111 $
+b1111111111111111 (
+b110 &
+b110 )
 #240
+b1010 ,
+b1001 +
+b10100 3
+b10101 2
+b101100 !
+b101100 M
+b1000000000001001 "
+b1000000000001001 L
+b10111111111110100 1
+b11000000000001001 *
+b1111111111110101 $
+b1111111111110101 (
+b111 &
+b111 )
+#250
+b11101 ,
+b1 0
+b111 3
+b11 .
+b1101 "
+b1101 L
+b1 !
+b1 M
+b10011 -
+b10001 /
+b10010 #
+b10010 '
+b10111 1
+b1101 *
+b101 $
+b101 (
+b110 &
+b110 )
+b11101 +
+b111 2
+0%
+#260
+b10 0
+b100 .
+b0 ,
+b110 3
+b1111 "
+b1111 L
+b11 !
+b11 M
+b10100 -
+b10010 /
+b10011 #
+b10011 '
+b10110 1
+b1111 *
+b11 $
+b11 (
+b111 &
+b111 )
+b11111 +
+b111 2
+1%
+#270
+b11111 0
+b1 .
+b0 ,
+b0 3
+b11 !
+b11 M
+b10001 -
+b1111 /
+b10000 #
+b10000 '
+b10000 1
+b10000 *
+b0 $
+b0 (
+b11 &
+b11 )
+b0 +
+b0 2
+0%
+#280
+b1000 0
+b1010 .
+b1 ,
+b1 +
+b10001 3
+b10001 2
+b11 !
+b11 M
+b10001 "
+b10001 L
+b1010 -
+b1000 /
+b1001 #
+b1001 '
+b10001 1
+b1 *
+b1000 $
+b1000 (
+b100 &
+b100 )
+#290
+b0 ,
+b111 0
+b10000 3
+b1001 .
+b11 !
+b11 M
+b10001 1
+b0 *
+b1001 -
+b111 /
+b1000 #
+b1000 '
+b101 &
+b101 )
+b11111 +
+b10001 2
+1%
+#300
+b1110 0
+b10000 .
+b1111 ,
+b1111 3
+b10000 "
+b10000 L
+b1 !
+b1 M
+b10000 -
+b1110 /
+b1111 #
+b1111 '
+b1111 1
+b1111 *
+b0 $
+b0 (
+b1 &
+b1 )
+b1111 +
+b1111 2
+0%
+#320

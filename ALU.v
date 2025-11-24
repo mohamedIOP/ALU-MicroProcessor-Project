@@ -30,6 +30,15 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
                 OVERFLOW_F = 2,
                 PARITY_F = 1,
                 AUX_CARRY_F = 0;
+    // Internal signals for AUX carry (SUB operations)
+    wire [4:0] sub_aux = {1'b0, A[3:0]} - {1'b0, B[3:0]};
+    wire [4:0] sub_borrow_aux = {1'b0, A[3:0]} - {1'b0, B[3:0]} - {4'b0, Cin};
+    wire [4:0] dec_aux = {1'b0, A[3:0]} - 5'h1;
+    
+    // Internal signals for AUX carry (ADD operations)  
+    wire [4:0] add_aux = {1'b0, A[3:0]} + {1'b0, B[3:0]};
+    wire [4:0] add_carry_aux = {1'b0, A[3:0]} + {1'b0, B[3:0]} + {4'b0, Cin};
+    wire [4:0] inc_aux = {1'b0, A[3:0]} + 5'h1;
     // Internal signals for arithmetic operations
     wire [16:0] add_result = A + B + ((F == ADD_CARRY) ? Cin : 1'b0);
     wire [16:0] sub_result = A - B - ((F == SUB_BORROW) ? Cin : 1'b0);
@@ -73,15 +82,18 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
                 if(F[1]) begin
                     Status[CARRY_F] = (F == DEC) ? dec_result[16] : sub_result[16];
                     Status[OVERFLOW_F] = (A[15] != B[15]) && (Result[15] != A[15]);
-                    if(F != DEC) Status[AUX_CARRY_F] = (A[3:0] < B[3:0]);
-                    else Status[AUX_CARRY_F] = (A[3:0] < (B[3:0] + Cin));
+                    case (F)
+                        SUB:      Status[AUX_CARRY_F] = sub_aux[4];  // Borrow from nibble
+                        SUB_BORROW: Status[AUX_CARRY_F] = sub_borrow_aux[4];
+                        DEC:      Status[AUX_CARRY_F] = dec_aux[4];
+                        default:  Status[AUX_CARRY_F] = 1'b0;
+                    endcase
                 end
                 // ADD Operation
                 else begin
                     Status[CARRY_F] = (F == INC) ? inc_result[16] : add_result[16];
                     Status[OVERFLOW_F] = (A[15] == B[15]) && (Result[15] != A[15]);
-                    if(F != INC) Status[AUX_CARRY_F] = (A[3:0] + B[3:0] > 4'hF);
-                    else Status[AUX_CARRY_F] = (A[3:0] + B[3:0] + Cin > 4'hF);
+                    Status[AUX_CARRY_F] = (F == INC) ? inc_result[4] : add_result[4];
                 end
             end
             ROL,RCL,SHL,SAL:begin
@@ -108,7 +120,7 @@ reg [4:0] F;
 reg Cin;
 ALU ALU_BlockTest (.Result(Result),.Status(Status),.A(A),.B(B),.F(F),.Cin(Cin));
 initial begin
-    #240 $finish;
+    #320 $finish;
 end
 initial begin
     $dumpfile("ALU_TESTBENCH.vcd");
@@ -137,6 +149,17 @@ initial fork
     #180 {A,B,F,Cin} = {16'h0f0f,16'h0003,5'b10101,1'b1};
     #190 {A,B,F,Cin} = {16'h0f0f,16'h0003,5'b10110,1'b1};
     #200 {A,B,F,Cin} = {16'h3f00,16'h0003,5'b10111,1'b1};
-    // FLags
+    // Overflow FLag Testing
+    #210 {A,B,F,Cin} = {16'h7fff,16'h0001,5'b00100,1'b1};
+    #220 {A,B,F,Cin} = {16'h7fff,16'h0001,5'b00101,1'b1};
+    #230 {A,B,F,Cin} = {16'h7fff,16'hffff,5'b00110,1'b1};
+    #240 {A,B,F,Cin} = {16'h7fff,16'hfff5,5'b00111,1'b1};
+    // aux.  flag testing
+    #250 {A,B,F,Cin} = {16'h0012,16'h0005,5'b00110,1'b0};
+    #260 {A,B,F,Cin} = {16'h0013,16'h0003,5'b00111,1'b1};
+    #270 {A,B,F,Cin} = {16'h0010,16'h0000,5'b00011,1'b0};
+    #280 {A,B,F,Cin} = {16'h0009,16'h0008,5'b00100,1'b0};
+    #290 {A,B,F,Cin} = {16'h0008,16'h0008,5'b00101,1'b1};
+    #300 {A,B,F,Cin} = {16'h000F,16'h0000,5'b00001,1'b0};
 join
 endmodule
