@@ -34,7 +34,6 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
     wire [4:0] sub_aux = {1'b0, A[3:0]} - {1'b0, B[3:0]};
     wire [4:0] sub_borrow_aux = {1'b0, A[3:0]} - {1'b0, B[3:0]} - {4'b0, Cin};
     wire [4:0] dec_aux = {1'b0, A[3:0]} - 5'h1;
-    
     // Internal signals for AUX carry (ADD operations)  
     wire [4:0] add_aux = {1'b0, A[3:0]} + {1'b0, B[3:0]};
     wire [4:0] add_carry_aux = {1'b0, A[3:0]} + {1'b0, B[3:0]} + {4'b0, Cin};
@@ -93,7 +92,12 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
                 else begin
                     Status[CARRY_F] = (F == INC) ? inc_result[16] : add_result[16];
                     Status[OVERFLOW_F] = (A[15] == B[15]) && (Result[15] != A[15]);
-                    Status[AUX_CARRY_F] = (F == INC) ? inc_result[4] : add_result[4];
+                    case (F)
+                        ADD:      Status[AUX_CARRY_F] = add_aux[4];  // Borrow from nibble
+                        ADD_CARRY: Status[AUX_CARRY_F] = add_carry_aux[4];
+                        INC:      Status[AUX_CARRY_F] = inc_aux[4];
+                        default:  Status[AUX_CARRY_F] = 1'b0;
+                    endcase
                 end
             end
             ROL,RCL,SHL,SAL:begin

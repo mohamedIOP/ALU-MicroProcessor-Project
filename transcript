@@ -1,114 +1,7 @@
 # Compile of ALU.v was successful.
-vsim -gui work.ALU
-# vsim -gui work.ALU 
-# Start time: 16:26:24 on Nov 23,2025
-# Loading work.ALU
-# WARNING: No extended dataflow license exists
-add wave -position end  sim:/ALU/Result
-add wave -position end  sim:/ALU/Status
-add wave -position end  sim:/ALU/A
-add wave -position end  sim:/ALU/B
-add wave -position end  sim:/ALU/F
-add wave -position end  sim:/ALU/Cin
-add wave -position end  sim:/ALU/add_result
-add wave -position end  sim:/ALU/sub_result
-add wave -position end  sim:/ALU/inc_result
-add wave -position end  sim:/ALU/dec_result
-force -freeze sim:/ALU/F 00000 0
-force -freeze sim:/ALU/Cin 1 0
-force -freeze sim:/ALU/A FFFF 0
-# Invalid binary digit: F.
-# ** UI-Msg: (vsim-4011) Invalid force value: FFFF 0.
-# 
-force -freeze sim:/ALU/B FFFF 0
-# Invalid binary digit: F.
-# ** UI-Msg: (vsim-4011) Invalid force value: FFFF 0.
-# 
-run
-force -freeze sim:/ALU/A 0000_0000_0000_0000 0
-force -freeze sim:/ALU/B 0000_0000_0000_0000 0
-run
-# Compile of ALU.v was successful.
-vsim -gui work.ALU
-# End time: 16:32:03 on Nov 23,2025, Elapsed time: 0:05:39
-# Errors: 0, Warnings: 6
-# vsim -gui work.ALU 
-# Start time: 16:32:03 on Nov 23,2025
-# Loading work.ALU
-# WARNING: No extended dataflow license exists
-add wave -position end  sim:/ALU/Result
-add wave -position end  sim:/ALU/Status
-add wave -position end  sim:/ALU/A
-add wave -position end  sim:/ALU/B
-add wave -position end  sim:/ALU/F
-add wave -position end  sim:/ALU/Cin
-add wave -position end  sim:/ALU/add_result
-add wave -position end  sim:/ALU/sub_result
-add wave -position end  sim:/ALU/inc_result
-add wave -position end  sim:/ALU/dec_result
-force -freeze sim:/ALU/A 0000_0000_0000_0000 0
-force -freeze sim:/ALU/B 0000_0000_0000_0000 0
-force -freeze sim:/ALU/F 00000 0
-force -freeze sim:/ALU/Cin 1 0
-run
-force -freeze sim:/ALU/F 00010 0
-run
-force -freeze sim:/ALU/F 00001 0
-run
-force -freeze sim:/ALU/A 16'h0001 0
-run
-force -freeze sim:/ALU/F 00011 0
-run
-force -freeze sim:/ALU/A 16'h0003 0
-force -freeze sim:/ALU/B 16'h0004 0
-force -freeze sim:/ALU/F 00100 0
-run
-force -freeze sim:/ALU/F 00101 0
-run
-force -freeze sim:/ALU/A 16'h0007 0
-force -freeze sim:/ALU/B 16'h0003 0
-force -freeze sim:/ALU/F 00110 0
-run
-force -freeze sim:/ALU/F 00111 0
-run
-force -freeze sim:/ALU/F 01000 0
-run
-force -freeze sim:/ALU/F 01001 0
-run
-force -freeze sim:/ALU/F 01010 0
-run
-force -freeze sim:/ALU/F 01011 0
-run
-force -freeze sim:/ALU/A 1000_0000_1111_0000 0
-force -freeze sim:/ALU/F 10000 0
-run
-force -freeze sim:/ALU/A 0000_1111_0000_1111 0
-force -freeze sim:/ALU/F 10001 0
-run
-force -freeze sim:/ALU/A 1111_0000_1111_0000 0
-force -freeze sim:/ALU/F 10010 0
-run
-force -freeze sim:/ALU/A 1111000011110001 0
-force -freeze sim:/ALU/F 10011 0
-run
-run
-force -freeze sim:/ALU/A 1111000011110000 0
-force -freeze sim:/ALU/F 10100 0
-run
-force -freeze sim:/ALU/A 0000_1111_0000_1111 0
-force -freeze sim:/ALU/F 10101 0
-run
-force -freeze sim:/ALU/F 10110 0
-run
-force -freeze sim:/ALU/A 0011_1111_0000_0000 0
-force -freeze sim:/ALU/F 10111 0
-run
-# Compile of ALU.v was successful.
 vsim -gui work.TB_ALU
-# End time: 22:52:55 on Nov 23,2025, Elapsed time: 6:20:52
-# Errors: 0, Warnings: 2
 # vsim -gui work.TB_ALU 
-# Start time: 22:52:55 on Nov 23,2025
+# Start time: 18:30:44 on Nov 25,2025
 # Loading work.TB_ALU
 # Loading work.ALU
 # WARNING: No extended dataflow license exists
@@ -119,7 +12,8 @@ add wave -position end  sim:/TB_ALU/B
 add wave -position end  sim:/TB_ALU/F
 add wave -position end  sim:/TB_ALU/Cin
 run
-# ** Note: $finish    : D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v(109)
-#    Time: 240 ps  Iteration: 0  Instance: /TB_ALU
+# ** Note: $finish    : D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v(123)
+#    Time: 320 ps  Iteration: 0  Instance: /TB_ALU
 # 1
-# Break in Module TB_ALU at D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v line 109
+# Break in Module TB_ALU at D:/Studying/electronics and communication/Second Year/First Semester/Processor Architecture/Processor Architecture/Assignment/ALU-MicroProcessor-Project/ALU.v line 123
+# image file format "bmp" is unknown
