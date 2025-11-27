@@ -93,7 +93,7 @@ module ALU(output reg [15:0]Result,output reg [5:0]Status,
                     Status[CARRY_F] = (F == INC) ? inc_result[16] : add_result[16];
                     Status[OVERFLOW_F] = (A[15] == B[15]) && (Result[15] != A[15]);
                     case (F)
-                        ADD:      Status[AUX_CARRY_F] = add_aux[4];  // Borrow from nibble
+                        ADD:      Status[AUX_CARRY_F] = add_aux[4];  // Carry from nibble
                         ADD_CARRY: Status[AUX_CARRY_F] = add_carry_aux[4];
                         INC:      Status[AUX_CARRY_F] = inc_aux[4];
                         default:  Status[AUX_CARRY_F] = 1'b0;
